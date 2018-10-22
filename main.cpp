@@ -11,6 +11,7 @@ int main(int argc, char* argv[])
 {
 string filename;
 Bitmap image;
+Pixel color;
 if(argc != 2)
 {
 cout<<"Please specify one image file!\n";
@@ -28,8 +29,19 @@ if(image.isImage() == true)
 {
 vector <vector <Pixel> > imagePixels = image.toPixelMatrix();
 cout<<filename<<" is "<<imagePixels.size()<<" pixels high and "<<imagePixels[0].size()<<" wide."<<endl;       
+for(int rows =0; rows < imagePixels.size(); rows++)
+{
+for(int columns =0; columns < imagePixels[rows].size(); columns++)
+{
+imagePixels[rows][columns] = color;
+color.green = 0;
+color.blue =0;
+imagePixels[rows][columns] = color;
 }
-
+}
+image.fromPixelMatrix(imagePixels);
+image.save("redness.bmp");
+}
 
 
 
