@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
                                 color.green = 0;
                                 color.blue =0;
                                 imagePixels[rows][columns] = color;
+                               // cout<<color.red<<endl;
                         }
                 }
                 image.fromPixelMatrix(imagePixels);
